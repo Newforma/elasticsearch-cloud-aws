@@ -21,6 +21,10 @@
             <includes>
                 <include>com.amazonaws:aws-java-sdk</include>
                 <include>commons-codec:commons-codec</include>
+                <include>commons-logging:commons-logging</include>
+                <include>com.fasterxml.jackson.core:jackson-databind</include>
+                <include>org.apache.httpcomponents:httpcore</include>
+                <include>org.apache.httpcomponents:httpclient</include>
             </includes>
         </dependencySet>
     </dependencySets>

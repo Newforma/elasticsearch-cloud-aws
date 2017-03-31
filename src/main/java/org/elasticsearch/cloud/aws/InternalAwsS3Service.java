@@ -143,9 +143,10 @@ public class InternalAwsS3Service extends AbstractLifecycleComponent<AwsS3Servic
 
         if (account == null && key == null) {
             credentials = new AWSCredentialsProviderChain(
+            		new ContainerCredentialsProvider(),
                     new EnvironmentVariableCredentialsProvider(),
                     new SystemPropertiesCredentialsProvider(),
-                    new InstanceProfileCredentialsProvider()
+                    InstanceProfileCredentialsProvider.getInstance()
             );
         } else {
             credentials = new AWSCredentialsProviderChain(

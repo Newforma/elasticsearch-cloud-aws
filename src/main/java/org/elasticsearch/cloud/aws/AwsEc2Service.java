@@ -104,9 +104,10 @@ public class AwsEc2Service extends AbstractLifecycleComponent<AwsEc2Service> {
 
         if (account == null && key == null) {
             credentials = new AWSCredentialsProviderChain(
+            		new ContainerCredentialsProvider(),
                     new EnvironmentVariableCredentialsProvider(),
                     new SystemPropertiesCredentialsProvider(),
-                    new InstanceProfileCredentialsProvider()
+                    InstanceProfileCredentialsProvider.getInstance()
             );
         } else {
             credentials = new AWSCredentialsProviderChain(
